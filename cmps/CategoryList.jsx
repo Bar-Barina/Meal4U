@@ -10,13 +10,14 @@ export default function CategoryList({ categories }) {
       data={categories}
       keyExtractor={(item) => item.id}
       renderItem={renderItem}
+      numColumns={2}
     />
   );
 }
 
 const styles = StyleSheet.create({
     listContainer: {
-      gap:10,
+      marginTop:50,
     },
   });
   

@@ -1,11 +1,13 @@
-import { View, Text, Pressable, StyleSheet } from "react-native";
+import { View, Text, Pressable, StyleSheet , Platform} from "react-native";
 import React from "react";
 
 export default function CategoryPreview({ title, color }) {
   return (
     <View>
-      <Pressable style={[{ backgroundColor: color }, styles.previewContainer]}>
-        <Text>{title}</Text>
+      <Pressable style={({pressed}) => [styles.previewContainer, pressed ? styles.buttonPressed : null]} android_ripple={{color:'#CCC7'}}>
+        <View style={[styles.previewTextWrapper,{backgroundColor: color}]}>
+          <Text style={styles.title}>{title}</Text>
+        </View>
       </Pressable>
     </View>
   );
@@ -13,7 +15,28 @@ export default function CategoryPreview({ title, color }) {
 
 const styles = StyleSheet.create({
   previewContainer: {
-    padding: 10,
-    width: 100,
+    flex: 1,
+    width: 150,
+    height: 110,
+    margin: 20,
+    borderRadius: 8,
+    elevation: 4,
+    shadowColor: "black",
+    shadowOpacity: 0.25,
+    shadowOffset: { width: 0, height: 2 },
+    shadowRadius: 8,
+    overflow: Platform.OS === 'android' ? 'hidden' : 'visible',
   },
+  previewTextWrapper: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  title: {
+    fontWeight:'bold',
+    fontSize:16,
+  },
+  buttonPressed: {
+ opacity: 0.75,
+  }
 });
