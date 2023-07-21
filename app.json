@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "QuickGuess",
-    "slug": "QuickGuess",
+    "name": "Meal4U",
+    "slug": "Meal4U",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
