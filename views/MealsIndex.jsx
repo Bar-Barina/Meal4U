@@ -3,11 +3,17 @@ import React from "react";
 import { MEALS } from "../data/dummy-data";
 import MealList from "../cmps/Meal/MealList";
 
-export default function MealsIndex() {
+export default function MealsIndex({ route }) {
+  const catId = route.params.categoryId;
+
+  const mealsToRender = MEALS.filter((meal) =>
+    meal.categoryIds.includes(catId)
+  );
+
   return (
     <View>
-      <Text>Meals View</Text>
-      <MealList meals={MEALS} />
+      <Text>Meals View {catId}</Text>
+      <MealList meals={mealsToRender} />
     </View>
   );
 }

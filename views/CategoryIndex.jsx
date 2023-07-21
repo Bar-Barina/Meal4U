@@ -3,10 +3,10 @@ import React from "react";
 import { CATEGORIES } from "../data/dummy-data";
 import CategoryList from "../cmps/Category/CategoryList";
 
-export default function CategoryIndex({navigation}) {
+export default function CategoryIndex() {
   return (
     <View style={styles.container}>
-      <CategoryList categories={CATEGORIES} navigation={navigation}/>
+      <CategoryList categories={CATEGORIES} />
     </View>
   );
 }

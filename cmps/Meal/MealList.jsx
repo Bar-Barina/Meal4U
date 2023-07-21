@@ -3,7 +3,7 @@ import React from "react";
 import MealPreview from "./MealPreview";
 
 export default function MealList({ meals }) {
-  const renderItem = ({ item }) => <MealPreview />;
+  const renderItem = ({ item }) => <MealPreview title={item.title}  imageUrl={item.imageUrl} complexity={item.complexity} affordability={item.affordability} duration={item.duration}/>;
   return (
     <FlatList
       data={meals}
