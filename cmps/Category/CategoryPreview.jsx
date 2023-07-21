@@ -1,10 +1,10 @@
 import { View, Text, Pressable, StyleSheet , Platform} from "react-native";
 import React from "react";
 
-export default function CategoryPreview({ title, color }) {
+export default function CategoryPreview({ title, color, onPress }) {
   return (
     <View>
-      <Pressable style={({pressed}) => [styles.previewContainer, pressed ? styles.buttonPressed : null]} android_ripple={{color:'#CCC7'}}>
+      <Pressable style={({pressed}) => [styles.previewContainer, pressed ? styles.buttonPressed : null]} android_ripple={{color:'#CCC7'}} onPress={onPress}>
         <View style={[styles.previewTextWrapper,{backgroundColor: color}]}>
           <Text style={styles.title}>{title}</Text>
         </View>

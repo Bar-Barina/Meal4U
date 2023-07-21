@@ -1,11 +1,21 @@
-import { View } from "react-native";
+import { View,StyleSheet } from "react-native";
 import React from "react";
-import CategoryList from "../cmps/CategoryList";
+import { CATEGORIES } from "../data/dummy-data";
+import CategoryList from "../cmps/Category/CategoryList";
 
-export default function CategoryIndex({categories}) {
+export default function CategoryIndex({navigation}) {
   return (
-    <View>
-      <CategoryList categories={categories}/>
+    <View style={styles.container}>
+      <CategoryList categories={CATEGORIES} navigation={navigation}/>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      alignItems: "center",
+      justifyContent: "center",
+    },
+  });
+  
