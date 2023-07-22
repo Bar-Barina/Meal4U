@@ -8,18 +8,14 @@ import {
 } from "react-native";
 import React from "react";
 
-export default function MealPreview({
-  title,
-  imageUrl,
-  complexity,
-  affordability,
-  duration,
-}) {
+export default function MealPreview({ payload, onPress }) {
+  const { title, imageUrl, complexity, affordability, duration } = payload;
   return (
     <View style={styles.previewContainer}>
       <Pressable
         style={({ pressed }) => (pressed ? styles.buttonPressed : null)}
         android_ripple={{ color: "#CCC7" }}
+        onPress={onPress}
       >
         <View style={styles.innerContainer}>
           <Image source={{ uri: imageUrl }} style={styles.image} />
@@ -51,7 +47,7 @@ const styles = StyleSheet.create({
   innerContainer: {
     alignItems: "center",
     borderRadius: 8,
-    overflow:'hidden',
+    overflow: "hidden",
   },
   image: {
     height: 200,
@@ -60,7 +56,7 @@ const styles = StyleSheet.create({
   title: {
     fontWeight: "bold",
     fontSize: 16,
-    marginTop:10,
+    marginTop: 10,
   },
   details: {
     padding: 15,

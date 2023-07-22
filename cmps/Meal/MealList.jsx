@@ -1,9 +1,30 @@
 import { FlatList } from "react-native";
-import React from "react";
 import MealPreview from "./MealPreview";
+import { useNavigation } from "@react-navigation/native";
 
 export default function MealList({ meals }) {
-  const renderItem = ({ item }) => <MealPreview title={item.title}  imageUrl={item.imageUrl} complexity={item.complexity} affordability={item.affordability} duration={item.duration}/>;
+  // const payload = {
+
+  // }
+
+  const renderItem = ({ item }) => {
+    const payload = {
+      title: item.title,
+      imageUrl: item.imageUrl,
+      complexity: item.complexity,
+      affordability: item.affordability,
+      duration: item.duration,
+    };
+
+    return <MealPreview onPress={() => pressHandler(item.id)} payload={payload} />;
+  };
+
+  const navigation = useNavigation();
+
+  function pressHandler(itemId) {
+    navigation.navigate("Meal Details", { mealId: itemId });
+  }
+
   return (
     <FlatList
       data={meals}

@@ -1,14 +1,22 @@
-import { View, Text } from "react-native";
-import React from "react";
-import { MEALS } from "../data/dummy-data";
+import { View } from "react-native";
+import React, {useLayoutEffect} from "react";
+import { MEALS,CATEGORIES } from "../data/dummy-data";
 import MealList from "../cmps/Meal/MealList";
 
-export default function MealsIndex({ route }) {
+export default function MealsIndex({ route,navigation }) {
   const catId = route.params.categoryId;
 
   const mealsToRender = MEALS.filter((meal) =>
     meal.categoryIds.includes(catId)
   );
+  
+  useLayoutEffect(() => {
+    const catTitle = CATEGORIES.find(category => category.id === catId).title
+    navigation.setOptions({
+      title: catTitle
+    })
+  },[catId,navigation])
+ 
 
   return (
     <View>
