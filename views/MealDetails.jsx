@@ -11,12 +11,13 @@ export default function MealDetails({ route }) {
       <View style={styles.container}>
         <Text style={styles.title}>{meal.title}</Text>
         <Image source={{ uri: meal.imageUrl }} style={styles.image} />
-        <Text style={styles.info}>Affordability: {meal.affordability}</Text>
-        <Text style={styles.info}>Complexity: {meal.complexity}</Text>
-        <Text style={styles.info}>Duration: {meal.duration} minutes</Text>
-
+        <View style={styles.details}>
+          <Text>{meal.complexity.toUpperCase()}</Text>
+          <Text>{meal.affordability.toUpperCase()}</Text>
+          <Text>{meal.duration}M</Text>
+        </View>
         <View style={styles.listContainer}>
-          <Text style={styles.listTitle}>Ingredients:</Text>
+          <Text style={styles.listTitle}>Ingredients</Text>
           {meal.ingredients.map((ingredient, index) => (
             <Text key={index} style={styles.listItem}>
               {ingredient}
@@ -25,7 +26,7 @@ export default function MealDetails({ route }) {
         </View>
 
         <View style={styles.listContainer}>
-          <Text style={styles.listTitle}>Steps:</Text>
+          <Text style={styles.listTitle}>Steps</Text>
           {meal.steps.map((step, index) => (
             <Text key={index} style={styles.listItem}>
               {`${index + 1}. ${step}`}
@@ -67,15 +68,11 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: "bold",
     marginBottom: 10,
-    textAlign:'center'
+    textAlign: "center",
   },
   image: {
     height: 200,
     marginBottom: 10,
-  },
-  info: {
-    fontSize: 16,
-    marginBottom: 5,
   },
   listContainer: {
     marginBottom: 10,
@@ -92,5 +89,11 @@ const styles = StyleSheet.create({
   status: {
     fontSize: 16,
     marginBottom: 5,
+  },
+  details: {
+    padding: 15,
+    alignItems: "center",
+    flexDirection: "row",
+    justifyContent: "space-between",
   },
 });
