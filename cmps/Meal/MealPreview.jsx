@@ -1,4 +1,11 @@
-import { View, Text, Image, StyleSheet, Pressable } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  Pressable,
+  Platform,
+} from "react-native";
 import React from "react";
 
 export default function MealPreview({
@@ -9,20 +16,19 @@ export default function MealPreview({
   duration,
 }) {
   return (
-    <View >
+    <View style={styles.previewContainer}>
       <Pressable
-        style={({ pressed }) => [
-          styles.previewContainer,
-          pressed ? styles.buttonPressed : null,
-        ]}
+        style={({ pressed }) => (pressed ? styles.buttonPressed : null)}
         android_ripple={{ color: "#CCC7" }}
       >
-        <Image source={{ uri: imageUrl }} style={styles.image} />
-        <View style={[styles.previewTextWrapper]}>
+        <View style={styles.innerContainer}>
+          <Image source={{ uri: imageUrl }} style={styles.image} />
           <Text style={styles.title}>{title}</Text>
+        </View>
+        <View style={styles.details}>
           <Text>{complexity.toUpperCase()}</Text>
           <Text>{affordability.toUpperCase()}</Text>
-          <Text>{duration} Minutes</Text>
+          <Text>{duration}M</Text>
         </View>
       </Pressable>
     </View>
@@ -31,38 +37,41 @@ export default function MealPreview({
 
 const styles = StyleSheet.create({
   previewContainer: {
-    flex: 1,
-    margin: 10,
-    padding: 10,
-    borderTopLeftRadius: 8,
-    borderTopRightRadius: 8,
-    // elevation: 4,
-    borderBottomColor:'black',
-    borderBottomWidth: 1,
+    marginHorizontal: 30,
+    marginVertical: 10,
+    borderRadius: 8,
+    overflow: Platform.OS === "android" ? "hidden" : "visible",
+    elevation: 4,
+    backgroundColor: "white",
     shadowColor: "black",
     shadowOpacity: 0.25,
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 8,
-    overflow: Platform.OS === "android" ? "hidden" : "visible",
   },
-  previewTextWrapper: {
-    flex: 1,
+  innerContainer: {
     alignItems: "center",
-    justifyContent: "center",
-    padding: 10,
+    borderRadius: 8,
+    overflow:'hidden',
+  },
+  details: {
+    padding: 15,
+    alignItems: "center",
+    flexDirection: "row",
+    justifyContent: "space-between",
   },
   title: {
-    fontWeight:"bold",
-    fontSize: 14,
+    fontWeight: "bold",
+    fontSize: 16,
+    marginTop:10,
   },
   buttonPressed: {
     opacity: 0.75,
   },
   image: {
-    flex: 1,
-    width: "100%",
     height: 200,
-    borderTopLeftRadius: 8,
-    borderTopRightRadius: 8,
+    width: "100%",
+  },
+  imageWrapper: {
+    overflow: "hidden",
   },
 });

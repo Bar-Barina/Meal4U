@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     flex: 1,
     width: 150,
     height: 110,
-    margin: 20,
+    margin: 15,
     borderRadius: 8,
     elevation: 4,
     shadowColor: "black",
@@ -38,6 +38,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
+    borderRadius: 8,
   },
   title: {
     fontWeight: "bold",
