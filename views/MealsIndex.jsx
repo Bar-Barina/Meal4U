@@ -12,7 +12,6 @@ export default function MealsIndex({ route }) {
 
   return (
     <View>
-      <Text>Meals View {catId}</Text>
       <MealList meals={mealsToRender} />
     </View>
   );

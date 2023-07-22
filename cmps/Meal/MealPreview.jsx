@@ -53,25 +53,22 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     overflow:'hidden',
   },
-  details: {
-    padding: 15,
-    alignItems: "center",
-    flexDirection: "row",
-    justifyContent: "space-between",
+  image: {
+    height: 200,
+    width: "100%",
   },
   title: {
     fontWeight: "bold",
     fontSize: 16,
     marginTop:10,
   },
+  details: {
+    padding: 15,
+    alignItems: "center",
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
   buttonPressed: {
     opacity: 0.75,
-  },
-  image: {
-    height: 200,
-    width: "100%",
-  },
-  imageWrapper: {
-    overflow: "hidden",
   },
 });
