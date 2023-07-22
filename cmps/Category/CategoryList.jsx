@@ -1,4 +1,4 @@
-import { FlatList, StyleSheet } from "react-native";
+import { FlatList} from "react-native";
 import React from "react";
 import CategoryPreview from "./CategoryPreview";
 import { useNavigation } from "@react-navigation/native";
@@ -12,16 +12,14 @@ export default function CategoryList({ categories }) {
       color={item.color}
       onPress={() => pressHandler(item.id)}
     />
-    
   );
 
   function pressHandler(itemId) {
-    navigation.navigate("Meals List", {categoryId: itemId});
+    navigation.navigate("Meals List", { categoryId: itemId });
   }
 
   return (
     <FlatList
-      style={styles.listContainer}
       data={categories}
       keyExtractor={(item) => item.id}
       renderItem={renderItem}
@@ -30,6 +28,3 @@ export default function CategoryList({ categories }) {
   );
 }
 
-const styles = StyleSheet.create({
-  listContainer: {},
-});

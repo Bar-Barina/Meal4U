@@ -12,9 +12,7 @@ export default function MealList({ meals }) {
       duration: item.duration,
     };
 
-    return (
-      <MealPreview onPress={() => pressHandler(item)} payload={payload} />
-    );
+    return <MealPreview onPress={() => pressHandler(item)} payload={payload} />;
   };
 
   const navigation = useNavigation();
