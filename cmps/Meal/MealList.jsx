@@ -3,10 +3,6 @@ import MealPreview from "./MealPreview";
 import { useNavigation } from "@react-navigation/native";
 
 export default function MealList({ meals }) {
-  // const payload = {
-
-  // }
-
   const renderItem = ({ item }) => {
     const payload = {
       title: item.title,
@@ -16,13 +12,15 @@ export default function MealList({ meals }) {
       duration: item.duration,
     };
 
-    return <MealPreview onPress={() => pressHandler(item.id)} payload={payload} />;
+    return (
+      <MealPreview onPress={() => pressHandler(item)} payload={payload} />
+    );
   };
 
   const navigation = useNavigation();
 
-  function pressHandler(itemId) {
-    navigation.navigate("Meal Details", { mealId: itemId });
+  function pressHandler(item) {
+    navigation.navigate("Meal Details", { meal: item });
   }
 
   return (
