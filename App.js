@@ -1,4 +1,7 @@
 import { StatusBar } from "expo-status-bar";
+import {
+ Button,
+} from "react-native";
 import CategoryIndex from "./views/CategoryIndex";
 import MealsIndex from "./views/MealsIndex";
 import MealDetails from "./views/MealDetails";
