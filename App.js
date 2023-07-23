@@ -4,6 +4,7 @@ import CategoryIndex from "./views/CategoryIndex";
 import MealsIndex from "./views/MealsIndex";
 import MealDetails from "./views/MealDetails";
 import Favorites from "./views/Favorites";
+import Home from "./views/Home";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createDrawerNavigator } from "@react-navigation/drawer";
@@ -24,6 +25,15 @@ function DrawerNavigator() {
         drawerActiveBackgroundColor: "#f7f7ff",
       }}
     >
+      <Drawer.Screen
+        name="Home"
+        component={Home}
+        options={{
+          drawerIcon: ({ color, size }) => (
+            <Ionicons name="home" color={color} size={size} />
+          ),
+        }}
+      />
       <Drawer.Screen
         name="Categories"
         component={CategoryIndex}
