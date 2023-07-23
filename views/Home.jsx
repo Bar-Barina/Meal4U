@@ -1,5 +1,6 @@
 import { View, Text, StyleSheet, Button } from "react-native";
 import React from "react";
+import { LinearGradient } from "expo-linear-gradient";
 
 export default function Home({navigation}) {
 
@@ -8,24 +9,22 @@ navigation.navigate("Categories")
 }
 
   return (
-    <View style={styles.homeContainer}>
+    <LinearGradient colors={["#f7f7ff", "#414360"]}  style={styles.homeContainer}>
       <Text style={styles.homeText}>Meal4U</Text>
       <Button title="Get Started!" onPress={getStarted}  android_ripple={{ color: "#CCC7" }} />
-    </View>
+    </LinearGradient >
   );
 }
 
 const styles = StyleSheet.create({
   homeContainer: {
-    flexDirection: "column",
+    flex:1,
     justifyContent: "center",
     alignItems: "center",
     elevation: 4,
-    marginTop: "50%",
-    backgroundColor: "#f7f7ff",
   },
   homeText: {
     color:"#242526",
-    fontSize: 70,
+    fontSize: 90,
   },
 });
