@@ -24,7 +24,7 @@ export default function MealPreview({ payload, onPress }) {
         <View style={styles.details}>
           <Text>{complexity.toUpperCase()}</Text>
           <Text>{affordability.toUpperCase()}</Text>
-          <Text>{duration}M</Text>
+          <Text>{duration}M⏱️</Text>
         </View>
       </Pressable>
     </View>

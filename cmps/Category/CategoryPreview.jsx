@@ -1,7 +1,7 @@
 import { View, Text, Pressable, StyleSheet, Platform } from "react-native";
 import React from "react";
 
-export default function CategoryPreview({ title, color, onPress }) {
+export default function CategoryPreview({ title, onPress }) {
   return (
     <View>
       <Pressable
@@ -12,7 +12,7 @@ export default function CategoryPreview({ title, color, onPress }) {
         android_ripple={{ color: "#CCC7" }}
         onPress={onPress}
       >
-        <View style={[styles.previewTextWrapper, { backgroundColor: color }]}>
+        <View style={[styles.previewTextWrapper, { backgroundColor: "#f7f7ff" }]}>
           <Text style={styles.title}>{title}</Text>
         </View>
       </Pressable>
@@ -43,6 +43,10 @@ const styles = StyleSheet.create({
   title: {
     fontWeight: "bold",
     fontSize: 16,
+    color:"#242526",
+    backgroundColor:"#bb5055",
+    padding:7,
+    width:"100%"
   },
   buttonPressed: {
     opacity: 0.75,
