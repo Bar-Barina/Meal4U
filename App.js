@@ -18,9 +18,9 @@ function DrawerNavigator() {
         headerStyle: { backgroundColor: "#242526" },
         headerTintColor: "white",
         sceneContainerStyle: { backgroundColor: "#414360" },
-        drawerContentStyle: { backgroundColor: "#585b82" },
-        drawerInactiveTintColor: "white",
-        drawerActiveBackgroundColor: "white",
+        drawerContentStyle: { backgroundColor: "#242526" },
+        drawerInactiveTintColor: "#f7f7ff",
+        drawerActiveBackgroundColor: "#f7f7ff",
       }}
     >
       <Drawer.Screen

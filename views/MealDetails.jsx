@@ -1,10 +1,4 @@
-import {
-  View,
-  Text,
-  Image,
-  StyleSheet,
-  ScrollView,
-} from "react-native";
+import { View, Text, Image, StyleSheet, ScrollView } from "react-native";
 import IconButton from "../cmps/IconButton";
 import React, { useLayoutEffect } from "react";
 
@@ -13,13 +7,29 @@ export default function MealDetails({ route, navigation }) {
   const getStatusMessage = (isTrue, trueMessage, falseMessage) =>
     isTrue ? trueMessage : falseMessage;
 
-  function headerButtonPressed() {
-  }
+  const getAffordabilityColor = () => {
+    if (meal.affordability === "affordable") {
+      return "#228768";
+    } else if (meal.affordability === "pricey") {
+      return "#ec233c";
+    } else if (meal.affordability === "luxurious") {
+      return "#cfa013";
+    }
+    return "black"; 
+  };
+
+  function headerButtonPressed() {}
 
   useLayoutEffect(() => {
     navigation.setOptions({
       headerRight: () => {
-        return <IconButton icon={"star"} color={"white"} onPress={headerButtonPressed} />;
+        return (
+          <IconButton
+            icon={"star"}
+            color={"white"}
+            onPress={headerButtonPressed}
+          />
+        );
       },
     });
   }, [navigation, headerButtonPressed]);
@@ -30,12 +40,14 @@ export default function MealDetails({ route, navigation }) {
         <Text style={styles.title}>{meal.title}</Text>
         <Image source={{ uri: meal.imageUrl }} style={styles.image} />
         <View style={styles.details}>
-          <Text>{meal.complexity.toUpperCase()}</Text>
-          <Text>{meal.affordability.toUpperCase()}</Text>
-          <Text>{meal.duration}M</Text>
+          <Text style={styles.mainDetail}>{meal.complexity.toUpperCase()}</Text>
+          <Text style={{ color: getAffordabilityColor() }}>
+            {meal.affordability.toUpperCase()}
+          </Text>
+          <Text style={styles.mainDetail}>{meal.duration}M⏱️</Text>
         </View>
         <View style={styles.listContainer}>
-          <Text style={styles.listTitle}>Ingredients</Text>
+          <Text style={styles.listTitle}>Ingredients 🧾</Text>
           {meal.ingredients.map((ingredient, index) => (
             <Text key={index} style={styles.listItem}>
               {ingredient}
@@ -44,7 +56,7 @@ export default function MealDetails({ route, navigation }) {
         </View>
 
         <View style={styles.listContainer}>
-          <Text style={styles.listTitle}>Steps</Text>
+          <Text style={styles.listTitle}>Steps ✏️</Text>
           {meal.steps.map((step, index) => (
             <Text key={index} style={styles.listItem}>
               {`${step}`}
@@ -55,19 +67,12 @@ export default function MealDetails({ route, navigation }) {
           <Text style={styles.status}>
             {getStatusMessage(
               meal.isGlutenFree,
-              "Gluten Free!",
-              "Isn't Gluten Free"
+              "Gluten Free",
+              "Contains Gluten"
             )}
           </Text>
           <Text style={styles.status}>
             {getStatusMessage(meal.isVegan, "Vegan", "Non-Vegan")}
-          </Text>
-          <Text style={styles.status}>
-            {getStatusMessage(
-              meal.isVegetarian,
-              "Vegetarian",
-              "Non-Vegetarian"
-            )}
           </Text>
           <Text style={styles.status}>
             {getStatusMessage(
@@ -85,38 +90,39 @@ export default function MealDetails({ route, navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    marginBottom:15,
   },
   title: {
     fontSize: 24,
     fontWeight: "bold",
     marginVertical: 15,
     textAlign: "center",
+    color: "#f7f7ff",
   },
   image: {
     height: 300,
     width: "100%",
-    marginBottom: 10,
   },
   listContainer: {
     marginBottom: 10,
   },
   listTitle: {
     fontSize: 18,
+    color: "#f7f7ff",
     fontWeight: "bold",
     marginBottom: 5,
     padding: 5,
     textAlign: "center",
-    borderBottomWidth: 1,
-    borderBottomColor: "white",
   },
   listItem: {
     fontSize: 16,
-    textAlign: "center",
+    textAlign: "left",
     backgroundColor: "white",
     borderRadius: 8,
-    padding: 3,
+    paddingLeft: 10,
+    padding: 5,
     marginVertical: 5,
-    marginHorizontal: 40,
+    marginHorizontal: 25,
     elevation: 4,
     shadowColor: "black",
     shadowOpacity: 0.25,
@@ -126,11 +132,16 @@ const styles = StyleSheet.create({
   status: {
     fontSize: 16,
     marginBottom: 5,
+    color: "#f7f7ff",
   },
   details: {
-    padding: 15,
+    padding: 10,
     alignItems: "center",
     flexDirection: "row",
     justifyContent: "space-between",
+  },
+  mainDetail: {
+    fontSize: 12,
+    color: "#f7f7ff",
   },
 });

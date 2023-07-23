@@ -10,6 +10,18 @@ import React from "react";
 
 export default function MealPreview({ payload, onPress }) {
   const { title, imageUrl, complexity, affordability, duration } = payload;
+
+  const getAffordabilityColor = () => {
+    if (affordability === "affordable") {
+      return "#228768";
+    } else if (affordability === "pricey") {
+      return "#ec233c";
+    } else if (affordability === "luxurious") {
+      return "#cfa013";
+    }
+    return "black"; // Default color
+  };
+
   return (
     <View style={styles.previewContainer}>
       <Pressable
@@ -23,7 +35,7 @@ export default function MealPreview({ payload, onPress }) {
         </View>
         <View style={styles.details}>
           <Text>{complexity.toUpperCase()}</Text>
-          <Text>{affordability.toUpperCase()}</Text>
+          <Text style={{ color: getAffordabilityColor() }}>{affordability.toUpperCase()}</Text>
           <Text>{duration}M⏱️</Text>
         </View>
       </Pressable>
