@@ -37,18 +37,19 @@ export default function MealDetails({ route, navigation }) {
 
   return (
     <>
+   
     <LinearGradient colors={["#414360", "#f7f7ff"]} style={{flex:1}}>
     <ScrollView>
       <View style={styles.container}>
-        {/* <Text style={styles.title}>{meal.title}</Text>
-        <Image source={{ uri: meal.imageUrl }} style={styles.image} /> */}
-        {/* <View style={styles.details}>
+         <Text style={styles.title}>{meal.title}</Text>
+        <Image source={{ uri: meal.imageUrl }} style={styles.image} /> 
+         <View style={styles.details}>
           <Text style={styles.mainDetail}>{meal.complexity.toUpperCase()}</Text>
           <Text style={{ color: getAffordabilityColor() }}>
             {meal.affordability.toUpperCase()}
           </Text>
           <Text style={styles.mainDetail}>{meal.duration}M⏱️</Text>
-        </View> */}
+        </View> 
         <View style={styles.listContainer}>
           <Text style={styles.listTitle}>Ingredients 🧾</Text>
           {meal.ingredients.map((ingredient, index) => (
@@ -137,7 +138,6 @@ const styles = StyleSheet.create({
   status: {
     fontSize: 16,
     marginBottom: 5,
-    color: "#f7f7ff",
   },
   details: {
     padding: 10,
@@ -147,6 +147,5 @@ const styles = StyleSheet.create({
   },
   mainDetail: {
     fontSize: 12,
-    color: "#f7f7ff",
   },
 });
