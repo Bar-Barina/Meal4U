@@ -1,6 +1,7 @@
 import { View, Text, Image, StyleSheet, ScrollView } from "react-native";
 import IconButton from "../cmps/IconButton";
 import React, { useLayoutEffect } from "react";
+import { LinearGradient } from "expo-linear-gradient";
 
 export default function MealDetails({ route, navigation }) {
   const { meal } = route.params;
@@ -35,17 +36,19 @@ export default function MealDetails({ route, navigation }) {
   }, [navigation, headerButtonPressed]);
 
   return (
+    <>
+    <LinearGradient colors={["#414360", "#f7f7ff"]} style={{flex:1}}>
     <ScrollView>
       <View style={styles.container}>
-        <Text style={styles.title}>{meal.title}</Text>
-        <Image source={{ uri: meal.imageUrl }} style={styles.image} />
-        <View style={styles.details}>
+        {/* <Text style={styles.title}>{meal.title}</Text>
+        <Image source={{ uri: meal.imageUrl }} style={styles.image} /> */}
+        {/* <View style={styles.details}>
           <Text style={styles.mainDetail}>{meal.complexity.toUpperCase()}</Text>
           <Text style={{ color: getAffordabilityColor() }}>
             {meal.affordability.toUpperCase()}
           </Text>
           <Text style={styles.mainDetail}>{meal.duration}M⏱️</Text>
-        </View>
+        </View> */}
         <View style={styles.listContainer}>
           <Text style={styles.listTitle}>Ingredients 🧾</Text>
           {meal.ingredients.map((ingredient, index) => (
@@ -84,13 +87,15 @@ export default function MealDetails({ route, navigation }) {
         </View>
       </View>
     </ScrollView>
+    </LinearGradient>
+    </>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginBottom:15,
+    marginVertical:10,
   },
   title: {
     fontSize: 24,

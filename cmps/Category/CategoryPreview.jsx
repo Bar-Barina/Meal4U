@@ -12,7 +12,7 @@ export default function CategoryPreview({ title, onPress }) {
         android_ripple={{ color: "#CCC7" }}
         onPress={onPress}
       >
-        <View style={[styles.previewTextWrapper, { backgroundColor: "#f7f7ff" }]}>
+        <View style={[styles.previewTextWrapper, { backgroundColor: "#585b82" }]}>
           <Text style={styles.title}>{title}</Text>
         </View>
       </Pressable>
@@ -43,8 +43,8 @@ const styles = StyleSheet.create({
   title: {
     fontWeight: "bold",
     fontSize: 16,
-    color:"black",
-    backgroundColor:"#bb5055",
+    color:"#f7f7ff",
+    backgroundColor:"#242526",
     padding:7,
     width:"100%"
   },

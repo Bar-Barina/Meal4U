@@ -1,13 +1,14 @@
-import { View,StyleSheet } from "react-native";
+import {StyleSheet } from "react-native";
 import React from "react";
 import { CATEGORIES } from "../data/dummy-data";
 import CategoryList from "../cmps/Category/CategoryList";
+import { LinearGradient } from "expo-linear-gradient";
 
 export default function CategoryIndex() {
   return (
-    <View style={styles.container}>
+    <LinearGradient colors={["#414360", "#f7f7ff"]}  style={styles.container}>
       <CategoryList categories={CATEGORIES} />
-    </View>
+      </LinearGradient>
   );
 }
 

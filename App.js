@@ -1,3 +1,4 @@
+import {StyleSheet} from "react-native"
 import { StatusBar } from "expo-status-bar";
 import CategoryIndex from "./views/CategoryIndex";
 import MealsIndex from "./views/MealsIndex";
@@ -73,3 +74,9 @@ export default function App() {
     </>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+})

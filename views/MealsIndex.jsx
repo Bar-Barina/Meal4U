@@ -1,7 +1,7 @@
-import { View } from "react-native";
 import React, {useLayoutEffect} from "react";
 import { MEALS,CATEGORIES } from "../data/dummy-data";
 import MealList from "../cmps/Meal/MealList";
+import { LinearGradient } from "expo-linear-gradient";
 
 export default function MealsIndex({ route,navigation }) {
   const catId = route.params.categoryId;
@@ -19,8 +19,8 @@ export default function MealsIndex({ route,navigation }) {
  
 
   return (
-    <View>
+    <LinearGradient colors={["#414360", "#f7f7ff"]}  style={{flex:1}}>
       <MealList meals={mealsToRender} />
-    </View>
+    </LinearGradient>
   );
 }
