@@ -43,7 +43,7 @@ export default function MealDetails({ route, navigation }) {
       headerRight: () => {
         return (
           <IconButton
-            icon={isMealFavorite ? "star" : "heart"}
+            icon={isMealFavorite ? "star" : "star-outline"}
             color={"white"}
             onPress={changeFavStatus}
           />
